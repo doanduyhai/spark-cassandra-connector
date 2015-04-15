@@ -131,3 +131,4 @@ Start one or more workers and connect them to the master via:
 Once you have started a worker, look at the master’s web UI (http://localhost:8080 by default).
 You should see the new node listed there, along with its number of CPUs and memory (minus one gigabyte left for the OS).
  
+[Next - Embedded Connector](10_embedded.md)
