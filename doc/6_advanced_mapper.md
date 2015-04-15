@@ -41,6 +41,7 @@ If for some reason you wish to associate a column of a different name than the p
 you may pass a column translation `Map` to a `DefaultColumnMapper` or `JavaBeanColumnMapper`:
 
 ```scala
+import com.datastax.spark.connector.mapper.DefaultColumnMapper
 case class WordCount(w: String, c: Int)
 
 object WordCount { 
@@ -51,7 +52,7 @@ object WordCount {
 sc.cassandraTable[WordCount]("test", "words").toArray
 // Array(WordCount(bar,20), WordCount(foo,10))
 
-sc.parallelize(Seq(WordCount("baz", 30), WordCount("foobar", 40)))
+sc.parallelize(Seq(new WordCount("baz", 30), new WordCount("foobar", 40)))
   .saveToCassandra("test", "words", SomeColumns("word", "count"))
 ```
 
